@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A5B8C"/>
+      <stop offset="1" stop-color="#0C1E36"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FF5A4F" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FF5A4F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#bg)"/>
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#sheen)"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="50" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="512" cy="318" r="56"/>
+    <path d="M512 374 V752"/>
+    <path d="M398 470 H626"/>
+    <path d="M292 574 C292 690 392 752 512 752 C632 752 732 690 732 574"/>
+    <path d="M246 624 L292 568 L346 616"/>
+    <path d="M678 616 L732 568 L778 624"/>
+  </g>
+  <circle cx="286" cy="286" r="96" fill="url(#glow)"/>
+  <circle cx="286" cy="286" r="42" fill="#FF453A"/>
+  <circle cx="274" cy="274" r="12" fill="#FFFFFF" fill-opacity="0.55"/>
+</svg>
