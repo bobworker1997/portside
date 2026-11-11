@@ -1,0 +1,26 @@
+name: Release
+
+# 推送 v 開頭的 tag（例如 v0.1.0）時，自動編譯並把 Portside.zip 放到 GitHub Releases
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build app
+        run: ./scripts/build-app.sh
+
+      - name: Package
+        run: ditto -c -k --keepParent build/Portside.app Portside.zip
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" Portside.zip --title "$GITHUB_REF_NAME" --generate-notes
