@@ -2,7 +2,7 @@
 
 English | [繁體中文](CHANGELOG.zh-TW.md)
 
-## Unreleased
+## v0.1.1
 
 ### Fixed
 

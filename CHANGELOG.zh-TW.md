@@ -2,7 +2,7 @@
 
 [English](CHANGELOG.md) | 繁體中文
 
-## 未發佈
+## v0.1.1
 
 ### 修正
 
