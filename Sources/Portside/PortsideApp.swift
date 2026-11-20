@@ -43,6 +43,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             await AuthManager.shared.check()
             guard AuthManager.shared.state != .expired else { return }
             for instance in ConfigStore.shared.config.instances where instance.autoStart {
+                // 需要確認的環境（例如 Production）不能默默自動連線
+                guard ConnectionConfirmation.confirm(
+                    instance,
+                    note: "這個連線設定為「開啟 Portside 時自動連線」。"
+                ) else { continue }
                 ProxyManager.shared.start(instance)
             }
         }

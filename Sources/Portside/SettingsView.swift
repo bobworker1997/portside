@@ -153,6 +153,11 @@ private struct InstanceForm: View {
                         .foregroundStyle(.orange)
                 }
                 Toggle("開啟 Portside 時自動連線", isOn: $instance.autoStart)
+                if instance.autoStart, store.environment(instance.environmentID)?.confirmBeforeConnect == true {
+                    Text("這個環境需要確認，開啟 Portside 時會先跳出確認視窗，不會直接連線。")
+                        .font(.caption)
+                        .foregroundStyle(.orange)
+                }
             }
 
             Section("實際執行的指令") {

@@ -261,15 +261,7 @@ private struct InstanceRow: View {
     }
 
     private func requestStart() {
-        if let environment, environment.confirmBeforeConnect {
-            NSApp.activate(ignoringOtherApps: true)
-            let alert = NSAlert()
-            alert.messageText = "要連線到「\(instance.name)」嗎？"
-            alert.informativeText = "這是 \(environment.name) 環境，會在 localhost:\(instance.port) 開啟連線。"
-            alert.addButton(withTitle: "連線")
-            alert.addButton(withTitle: "取消")
-            guard alert.runModal() == .alertFirstButtonReturn else { return }
-        }
+        guard ConnectionConfirmation.confirm(instance) else { return }
         if auth.state == .expired || auth.state == .loggingIn {
             proxy.queueUntilAuthenticated(instance.id)
         } else {
